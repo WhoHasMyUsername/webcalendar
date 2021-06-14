@@ -92,7 +92,9 @@ function user_valid_login ( $login, $password ) {
   }
   else
   {
-    while ( each ( $all_imap_hosts ) )
+    // PHP 7.2 throws a warning
+    //while ( each ( $all_imap_hosts ) )
+    foreach($all_imap_hosts as $key => $value)
     {
       $all_imap_ports[] = $imap_port;
     }
